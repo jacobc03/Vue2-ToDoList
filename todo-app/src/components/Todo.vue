@@ -40,7 +40,7 @@
 			<div class="ui bottom attached green basic button" v-show="!isEditing &&todo.done" disabled>
 				Completed
 			</div>
-			<div class="ui bottom attached red basic button" v-show="!isEditing && !todo.done">
+			<div class="ui bottom attached red basic button" v-on:click="completeTodo(todo)" v-show="!isEditing && !todo.done">
 				Pending
 			</div>
 		</div>
@@ -65,6 +65,9 @@ export default {
     // adds event listener to delete icon
     deleteTodo (todo) {
       this.$emit('delete-todo', todo)
+    },
+    completeTodo (todo) {
+      this.$emit('complete-todo', todo)
     }
   }
 }
