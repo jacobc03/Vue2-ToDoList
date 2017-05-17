@@ -13,6 +13,10 @@
 					<span class="right floated edit icon" v-on:click="showForm">
 						<i class="edit icon"></i>
 					</span>
+					<!-- adds trash icon below the edit icon in the template -->
+					<span class="right floated trash icon" v-on:click="deleteTodo(todo)">
+						<i class="trash icon"></i>
+					</span>
 				</div>
 			</div>
 			<!-- form is visible when we are in editing mode -->
@@ -57,6 +61,10 @@ export default {
     },
     hideForm () {
       this.isEditing = false
+    },
+    // adds event listener to delete icon
+    deleteTodo (todo) {
+      this.$emit('delete-todo', todo)
     }
   }
 }
